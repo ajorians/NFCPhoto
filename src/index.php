@@ -34,11 +34,11 @@ else
 
 if ( isset($_REQUEST) )
 {
-	$clueid = $_REQUEST['photoid'];
+	$photoid = $_REQUEST['photoid'];
 
-	if( isset($clueid) )
+	if( isset($photoid) )
 	{
-		//echo "<P>Clue: photoid is set :)<BR> " . $photoid . "</P>";
+		//echo "<P>Photo: photoid is set :)<BR> " . $photoid . "</P>";
 		$sqlSelect = "SELECT detail FROM Entries WHERE id = '" . $photoid . "';";
 
                 if( $result = mysqli_query($conn, $sqlSelect) )
@@ -46,7 +46,7 @@ if ( isset($_REQUEST) )
 			//echo "<P>Query successful</P>";
 			if ($row = mysqli_fetch_assoc($result)) {
 				//echo "<P>Fetch successful</P>";
-			        echo "<P>Detailss: " . $row['detail'] . "<P>";
+			        echo "<P>Details: " . $row['detail'] . "<P>";
 		        } else {
                           echo "No record found for ID: " . $id;
                         }
@@ -72,7 +72,7 @@ $conn->close();
 
 <form action="index.php" method="post">
 <p>
-                <label for="clueid">Photo ID:</label>
+                <label for="photoid">Photo ID:</label>
                 <input type="text" name="photoid" id="photoid">
 </p>
 
